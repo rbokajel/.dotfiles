@@ -8,7 +8,7 @@ local beautiful = require("beautiful")
 local widget_module = "modules.widgets"
 require(widget_module .. ".core.menu")
 
-local launchers = require(widget_module .. ".components.launcher")
+local launchers = require(widget_module .. ".bar.components.launcher")
 
 screen.connect_signal("request::desktop_decoration", function(s) 
     local bar_content = wibox.widget({
