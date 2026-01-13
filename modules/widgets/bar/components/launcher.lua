@@ -25,7 +25,7 @@ local function launcher(opts)
 end
 
 local rofi = launcher({
-    markup = ''
+    markup = '',
     onclick = function()
         awful.spawn("rofi")
     end
