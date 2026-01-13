@@ -5,25 +5,46 @@ local gears = require("gears")
 
 local beautiful = require("beautiful")
 
-local widget_module = "modules.widgets.core"
-require(widget_module .. ".menu")
+local widget_module = "modules.widgets"
+require(widget_module .. ".core.menu")
+
+local launchers = require(widget_module .. ".components.launcher")
 
 screen.connect_signal("request::desktop_decoration", function(s) 
     local bar_content = wibox.widget({
         {
             {
-                {
-                    
-                },
-                nil,
-                {},
-                {},
-            },
+                launchers.fetch_launchers(),
+                top = 7,
+                widget = wibox.container.margin
+            }
             bg = beautiful.bg_normal,
             fg = beautiful.fg_normal,
             widget = wibox.container.background
         }
     })
+
+    local bar = awful.popup {
+        visible = true,
+        ontop = false,
+        minimum_height = s.geometry.height - beautiful.useless_gap * 4,
+        minimum_width = beautiful.bar_width,
+        bg = beautiful.bg_normal .. "00",
+        fg = beautiful.fg_normal,
+        widget = bar_content,
+        screen = s,
+        placement = function (d)
+            return awful.placement.left(d, {
+                margins = {
+                    left = beautiful.useless_gap * 2
+                }
+            })
+        end
+    }
+
+    bar:struts {
+        left = beautiful.bar_width + beautiful.useless_gap * 2
+    }
     --[[s.mypromptbox = awful.widget.prompt()
     s.mylayoutbox = awful.widget.layoutbox(s)
         s.mylayoutbox:buttons(gears.table.join(
