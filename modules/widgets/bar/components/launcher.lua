@@ -7,7 +7,7 @@ local beautiful = require("beautiful")
 
 local naughty = require("naughty")
 
-local lauchers = { }
+local launchers = { }
 
 local function launcher(opts)
     local launcher = wibox.widget {
