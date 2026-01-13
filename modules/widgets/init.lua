@@ -10,7 +10,7 @@ require(widget_module .. ".core.menu")
 
 local launchers = require(widget_module .. ".bar.launcher")
 
-awful.screen.connect_signal("request::desktop_decoration", function(s) 
+screen.connect_signal("request::desktop_decoration", function(s) 
     local bar_content = wibox.widget({
         {
             {
