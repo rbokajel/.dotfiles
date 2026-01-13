@@ -16,6 +16,7 @@ mainmenu = awful.menu({
     items = { 
         { "awesome", awesomemenu, beautiful.awesome_icon },
         { "open terminal", terminal }
+        { "restart", awesome.restart }
     }
 })
 
