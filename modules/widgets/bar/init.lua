@@ -6,13 +6,18 @@ local gears = require("gears")
 local beautiful = require("beautiful")
 
 local widget_module = "modules.widgets"
-require(widget_module .. "core.menu")
+require(widget_module .. ".core.menu")
 
-local launchers = require(widget_module .. "componenets.launcher")
+local launchers = require(widget_module .. ".components.launcher")
 
 screen.connect_signal("request::desktop_decoration", function(s) 
     local bar_content = wibox.widget({
         {
+            {
+                launchers.fetch_launchers(),
+                top = 7,
+                widget = wibox.container.margin
+            }
             bg = beautiful.bg_normal,
             fg = beautiful.fg_normal,
             widget = wibox.container.background
