@@ -8,9 +8,9 @@ local beautiful = require("beautiful")
 local widget_module = "modules.widgets"
 require(widget_module .. ".core.menu")
 
-local launchers = require(widget_module .. ".bar.components.launcher")
+local launchers = require(widget_module .. ".bar.launcher")
 
-screen.connect_signal("request::desktop_decoration", function(s) 
+awful.screen.connect_for_each_screen(function(s)
     local bar_content = wibox.widget({
         {
             {
@@ -24,7 +24,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
         }
     })
 
-    local bar = awful.popup {
+    local bar = awful.popup({
         visible = true,
         ontop = false,
         minimum_height = s.geometry.height - beautiful.useless_gap * 4,
@@ -40,11 +40,11 @@ screen.connect_signal("request::desktop_decoration", function(s)
                 }
             })
         end
-    }
+    })
 
-    bar:struts {
+    bar:struts({
         left = beautiful.bar_width + beautiful.useless_gap * 2
-    }
+    })
     --[[s.mypromptbox = awful.widget.prompt()
     s.mylayoutbox = awful.widget.layoutbox(s)
         s.mylayoutbox:buttons(gears.table.join(
