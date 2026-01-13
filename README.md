@@ -1,2 +1,4 @@
-# It's my dotfiles idk
-I just wanted it to be stored somewhere cause I keep bricking my laptop and starting from scratch
+# Hyprland Arch Linux Rice
+Some rice I did when reinstalling arch linux since I bricked my last installation of it
+
+
