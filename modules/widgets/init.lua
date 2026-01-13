@@ -10,7 +10,7 @@ require(widget_module .. ".core.menu")
 
 local launchers = require(widget_module .. ".bar.launcher")
 
-awful.screen.connect_for_each_screen(function(s)
+awful.screen.connect_signal("request::desktop_decoration", function(s) 
     local bar_content = wibox.widget({
         {
             {
@@ -30,7 +30,7 @@ awful.screen.connect_for_each_screen(function(s)
         minimum_height = s.geometry.height - beautiful.useless_gap * 4,
         minimum_width = beautiful.bar_width,
         bg = beautiful.bg_normal .. "00",
-        fg = beautiful.fg_normal,
+        fg = "#5e81ac",
         widget = bar_content,
         screen = s,
         placement = function (d)
