@@ -47,3 +47,5 @@ launchers.fetch_launchers = function()
 
     return wibox.widget(widget_template)
 end
+
+return launchers
