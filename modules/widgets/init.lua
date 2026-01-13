@@ -17,7 +17,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
                 launchers.fetch_launchers(),
                 top = 7,
                 widget = wibox.container.margin
-            }
+            },
             bg = beautiful.bg_normal,
             fg = beautiful.fg_normal,
             widget = wibox.container.background
