@@ -1,5 +1,5 @@
 local function set_wallpaper(s)
-    local wallpaper = "/home/rbo/downloads/nord_lake.png"
+    local wallpaper = "~/backgrounds/nord_lake.png"
 
     gears.wallpaper.maximized(wallpaper, s, true)
 end
