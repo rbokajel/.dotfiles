@@ -14,10 +14,16 @@ screen.connect_signal("request::desktop_decoration", function(s)
     local bar_content = wibox.widget({
         {
             {
-                launchers.fetch_launchers(),
-                top = 7,
-                widget = wibox.container.margin
-            },
+                {
+                    {
+                        launchers.fetch_launchers(),
+                        top = 7,
+                        widget = wibox.container.margin
+                    },
+                    layout = wibox.layout.align.vertical
+                }
+                layout = wibox.layout.stack
+            }
             bg = beautiful.bg_normal,
             fg = beautiful.fg_normal,
             widget = wibox.container.background
